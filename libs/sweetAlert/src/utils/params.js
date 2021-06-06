@@ -50,7 +50,6 @@ export const defaultParams = {
   focusConfirm: true,
   focusDeny: false,
   focusCancel: false,
-  returnFocus: true,
   showCloseButton: false,
   closeButtonHtml: '&times;',
   closeButtonAriaLabel: 'Close this dialog',
@@ -130,7 +129,6 @@ export const updatableParams = [
   'onClose',
   'onDestroy',
   'progressSteps',
-  'returnFocus',
   'reverseButtons',
   'showCancelButton',
   'showCloseButton',
@@ -159,7 +157,6 @@ const toastIncompatibleParams = [
   'focusConfirm',
   'focusDeny',
   'focusCancel',
-  'returnFocus',
   'heightAuto',
   'keydownListenerCapture'
 ]
