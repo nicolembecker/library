@@ -8,23 +8,36 @@
     <title>Gerenciamento do sistema de biblioteca</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="libs/fontAwesome/css/all.css">
+    <link rel="shortcut icon" href="image/brandColor.png" type="image/x-icon">
     <link rel="stylesheet" href="libs/sweetAlert/dist/sweetalert2.css">
     <link rel="stylesheet" href="libs/DataTables/datatables.css">
+    <link rel="stylesheet" href="css/new.css">
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand text-white">Biblioteca</a>
-        <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+
+
+    <nav class="navbar navbar-dark bg-company-red navbar-expand-sm">
+        <a class="navbar-brand" href="">
+        Biblioteca
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-2" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
         </button>
-        <div id="my-nav" class="collapse navbar-collapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="src/eixo/view/list-eixo.html"><i class="fas fa-caret-square-down"></i> Eixos Tecnológicos</a>
+        <div class="collapse navbar-collapse" id="navbar-list-2">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
                 </li>
-            </ul>
+                <div id="my-nav" class="collapse navbar-collapse"></div>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="src/eixo/view/list-eixo.html"><i class="fas fa-caret-square-down"></i> Eixos Tecnológicos</a>
+                    </li>
+                </ul>
+        </div>
+        </ul>
         </div>
     </nav>
 
