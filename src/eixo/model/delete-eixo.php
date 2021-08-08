@@ -1,28 +1,28 @@
 <?php
 
-//Instância do banco de dados
-include("../../conexao/conn.php");
+    // Instância do banco de dados
+    include("../../conexao/conn.php");
 
-//Coleta do id que será excluido do nosso banco de dados que está sendo enviado pelo FORM
+    // Coleta do ID que será excluído do nosso banco de dados que está sendo enviado pelo FORM
     $IDEIXO = $_REQUEST['IDEIXO'];
 
-//Criar a nossa querie para interação com banco de dados 
+    // Criar a nossa querie para interação com o banco de dados
     $sql = "DELETE FROM EIXO WHERE IDEIXO = $IDEIXO";
 
-//Executar a nossa querie
+    // Executar a nossa querie
     $resultado = $pdo->query($sql);
 
-//Testar o retorno do resultado da nossa querie
+    // Testaremos o retorno do resultado da nossa querie
     if($resultado){
         $dados = array(
             'tipo' => 'success',
-            'mensagem' => 'Registro excluido com sucesso',
+            'mensagem' => 'Registro excluído com sucesso!'
         );
-    } else{
+    } else {
         $dados = array(
             'tipo' => 'error',
-            'mensagem' => 'Não foi possivel excluir o resgistro',
+            'mensagem' => 'Não foi possível excluir o registro'
         );
     }
 
-echo json_encode($dados);
+    echo json_encode($dados);
