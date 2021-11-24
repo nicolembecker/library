@@ -9,7 +9,7 @@ $(document).ready(function() {
         $('.modal-title').empty()
         $('.modal-body').empty()
 
-        $('.modal-title').append('Visualização de curso')
+        $('.modal-title').append('Visualização do curso')
 
         let IDCURSO = `IDCURSO=${$(this).attr('id')}`
 
@@ -50,6 +50,5 @@ $(document).ready(function() {
                 }
             }
         })
-
     })
 })

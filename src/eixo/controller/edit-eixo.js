@@ -26,7 +26,6 @@ $(document).ready(function() {
                         $('#IDEIXO').val(dado.dados.IDEIXO)
                     })
                     $('.btn-save').show()
-                    $('.btn-save').removeAttr('data-operation')
                     $('#modal-eixo').modal('show')
                 } else {
                     Swal.fire({ // Inicialização do SweetAlert

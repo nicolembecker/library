@@ -1,25 +1,24 @@
 <?php
 
-    // Realizar nossa conexão com o banco de dados
+    //iniciar conexão com o banco de dados
     include('../../conexao/conn.php');
 
-    $nome = $_REQUEST['NOME'];
+    $nome=$_REQUEST['NOME'];
 
-    // Criação da variável array que receberá toda a consulta do banco de dados
+    //variavel array que receberá toda a consulta
     $dados = array();
 
-    // Query de consulta ao banco de dados
+    //Query de consulta ao banco de dados
     $sql = "SELECT * FROM USUARIO WHERE NOME LIKE '%$nome%' ORDER BY NOME ASC";
 
-    // Executar a querie de consulta SQL
+    //executar query
     $resultado = $pdo->query($sql);
 
-    // Verificação do retorno da consulta
+    //verificação do retorno da consulta
     if($resultado){
         while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
             $dados[] = array_map('utf8_encode', $row);
         }
     }
 
-    // Retorno JSON para
     echo json_encode($dados);

@@ -8,7 +8,7 @@ $(document).ready(function() {
         $('.modal-title').append('Adicionar novo usuário')
 
         $('.modal-body').load('src/usuario/view/form-usuario.html', function() {
-            // CARREGAR TODOS OS TIPOS DE USUÁRIOS EXISTENTES NO BANCO DE DADOS
+            //TDS OS TIPOS DE USUARIOS NO BD
             $.ajax({
                     type: 'POST',
                     dataType: 'json',
@@ -20,7 +20,7 @@ $(document).ready(function() {
                         }
                     }
                 })
-                // CARREGAR TODOS OS CURSOS EXISTENTES NO BANCO DE DADOS
+                //TDS OS CURSOS EXISTENTES NO BD
             $.ajax({
                 type: 'POST',
                 dataType: 'json',

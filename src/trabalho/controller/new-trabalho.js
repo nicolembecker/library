@@ -7,9 +7,7 @@ $(document).ready(function() {
 
         $('.modal-title').append('Adicionar novo trabalho')
 
-        $('.modal-body').load('src/trabalho/view/form-trabalho.html', function() {
-
-        })
+        $('.modal-body').load('src/trabalho/view/form-trabalho.html', function() {})
 
         $('.btn-save').show()
 

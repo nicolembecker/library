@@ -4,24 +4,24 @@
     include('../../conexao/conn.php');
 
     // Executo a recepção do id a ser buscado no banco de dados
-    $IDCURSO = $_REQUEST['IDCURSO'];
+    $ID = $_REQUEST['IDTRABALHO'];
 
     // Gero a querie de consulta no banco de dados
-    $sql = "SELECT * FROM CURSO WHERE IDCURSO = $IDCURSO";
+    $sql = "SELECT * FROM TRABALHO WHERE IDTRABALHO = $ID";
 
     // Executar nossa querie de consulta ao banco de dados
     $resultado = $pdo->query($sql);
 
     // Testar a minha consulta de banco de dados
     if($resultado){
-        $resultQuery = array();
+        $dadosEixo = array();
         while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
-            $resultQuery = array_map('utf8_encode', $row);
+            $dadosEixo = array_map('utf8_encode', $row);
         }
         $dados = array(
             'tipo' => 'success',
             'mensagem' => '',
-            'dados' => $resultQuery
+            'dados' => $dadosEixo
         );
     } else {
         $dados = array(
@@ -32,4 +32,3 @@
     }
 
     echo json_encode($dados);
-

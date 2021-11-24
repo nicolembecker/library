@@ -15,43 +15,43 @@
         );
     } else {
         // Caso não exista campo em vazio, vamos gerar a requisição
-        $ID = isset($requestData['IDTIPO_USUARIO']) ? $requestData['IDTIPO_USUARIO'] : '';
+        $IDTIPO_USUARIO = isset($requestData['IDTIPO_USUARIO']) ? $requestData['IDTIPO_USUARIO'] : '';
         $operacao = isset($requestData['operacao']) ? $requestData['operacao'] : '';
 
         // Verifica se é para cadastra um nvo registro
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
             try{
-                $stmt = $pdo->prepare('INSERT INTO TIPO_USUARIO (DESCRICAO) VALUES (:a)');
+                $stmt = $pdo->prepare('INSERT INTO TIPO_USUARIO (DESCRICAO) VALUES (:nomeTipo)');
                 $stmt->execute(array(
-                    ':a' => utf8_decode($requestData['DESCRICAO'])
+                    ':nomeTipo' => utf8_decode($requestData['DESCRICAO'])
                 ));
                 $dados = array(
                     "tipo" => 'success',
-                    "mensagem" => 'Tipo usuário cadastrado com sucesso.'
+                    "mensagem" => 'Tipo de usuário cadastrado com sucesso.'
                 );
             } catch(PDOException $e) {
                 $dados = array(
                     "tipo" => 'error',
-                    "mensagem" => 'Não foi possível efetuar o cadastro do tipo de usuário.'
+                    "mensagem" => 'Não foi possível efetuar o cadastro do tipo do usuário.'
                 );
             }
         } else {
             // Se minha variável operação estiver vazia então devo gerar os scripts de update
             try{
-                $stmt = $pdo->prepare('UPDATE TIPO_USUARIO SET DESCRICAO = :a WHERE IDTIPO_USUARIO = :id');
+                $stmt = $pdo->prepare('UPDATE TIPO_USUARIO SET DESCRICAO = :nomeTipo WHERE IDTIPO_USUARIO = :id');
                 $stmt->execute(array(
-                    ':id' => $ID,
-                    ':a' => utf8_decode($requestData['DESCRICAO'])
+                    ':id' => $IDTIPO_USUARIO,
+                    ':nomeTipo' => utf8_decode($requestData['DESCRICAO'])
                 ));
                 $dados = array(
                     "tipo" => 'success',
-                    "mensagem" => 'Tipo usuário atualizado com sucesso.'
+                    "mensagem" => 'Tipo de usuário atualizado com sucesso.'
                 );
             } catch (PDOException $e) {
                 $dados = array(
                     "tipo" => 'error',
-                    "mensagem" => 'Não foi possível efetuar o alteração do tipo de usuário.'
+                    "mensagem" => 'Não foi possível efetuar a alteração do tipo do usuário.'
                 );
             }
         }

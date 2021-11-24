@@ -1,24 +1,24 @@
 $(document).ready(function() {
-    $('#table-tipo').DataTable({
+    $('#table-trabalho').DataTable({
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": "src/tipo-usuario/model/list-tipo.php",
+            "url": "src/trabalho/model/list-trabalho.php",
             "type": "POST"
         },
         "language": {
             "url": "libs/DataTables/pt_br.json"
         },
         "columns": [{
-                "data": 'IDTIPO_USUARIO',
+                "data": 'IDTRABALHO',
                 "className": 'text-center'
             },
             {
-                "data": 'DESCRICAO',
+                "data": 'TITULO',
                 "className": 'text-center'
             },
             {
-                "data": 'IDTIPO_USUARIO',
+                "data": 'IDTRABALHO',
                 "orderable": false,
                 "searchable": false,
                 "className": 'text-center',

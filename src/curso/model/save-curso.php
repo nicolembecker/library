@@ -15,7 +15,7 @@
         );
     } else {
         // Caso não exista campo em vazio, vamos gerar a requisição
-        $ID = isset($requestData['IDCURSO']) ? $requestData['IDCURSO'] : '';
+        $IDCURSO = isset($requestData['IDCURSO']) ? $requestData['IDCURSO'] : '';
         $operacao = isset($requestData['operacao']) ? $requestData['operacao'] : '';
 
         // Verifica se é para cadastra um nvo registro
@@ -29,7 +29,7 @@
                 ));
                 $dados = array(
                     "tipo" => 'success',
-                    "mensagem" => 'Curso cadastrado com sucesso.'
+                    "mensagem" => 'Curso foi cadastrado com sucesso.'
                 );
             } catch(PDOException $e) {
                 $dados = array(
@@ -42,18 +42,18 @@
             try{
                 $stmt = $pdo->prepare('UPDATE CURSO SET NOME = :a, EIXO_IDEIXO = :b WHERE IDCURSO = :id');
                 $stmt->execute(array(
-                    ':id' => $ID,
+                    ':id' => $IDCURSO,
                     ':a' => utf8_decode($requestData['NOME']),
                     ':b' => $requestData['EIXO_IDEIXO']
                 ));
                 $dados = array(
                     "tipo" => 'success',
-                    "mensagem" => 'Curso atualizado com sucesso.'
+                    "mensagem" => 'O curso foi atualizado com sucesso.'
                 );
             } catch (PDOException $e) {
                 $dados = array(
                     "tipo" => 'error',
-                    "mensagem" => 'Não foi possível efetuar o alteração do curso.'
+                    "mensagem" => 'Não foi possível efetuar a alteração do curso.'
                 );
             }
         }

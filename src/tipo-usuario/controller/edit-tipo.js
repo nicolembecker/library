@@ -9,7 +9,7 @@ $(document).ready(function() {
         $('.modal-title').empty()
         $('.modal-body').empty()
 
-        $('.modal-title').append('Edição de tipo de usuário')
+        $('.modal-title').append('Edição do tipo de usuário')
 
         let IDTIPO_USUARIO = `IDTIPO_USUARIO=${$(this).attr('id')}`
 
@@ -26,7 +26,6 @@ $(document).ready(function() {
                         $('#IDTIPO_USUARIO').val(dado.dados.IDTIPO_USUARIO)
                     })
                     $('.btn-save').show()
-                    $('.btn-save').removeAttr('data-operation')
                     $('#modal-tipo').modal('show')
                 } else {
                     Swal.fire({ // Inicialização do SweetAlert
@@ -38,6 +37,5 @@ $(document).ready(function() {
                 }
             }
         })
-
     })
 })

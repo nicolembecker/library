@@ -9,7 +9,7 @@ $(document).ready(function() {
         $('.modal-title').empty()
         $('.modal-body').empty()
 
-        $('.modal-title').append('Visualização de usuário')
+        $('.modal-title').append('Visualização de usuario')
 
         let IDUSUARIO = `IDUSUARIO=${$(this).attr('id')}`
 
@@ -41,7 +41,6 @@ $(document).ready(function() {
                                 }
                             }
                         })
-
                         var curso = dado.dados.CURSO_IDCURSO
                         $.ajax({
                             type: 'POST',
@@ -70,6 +69,5 @@ $(document).ready(function() {
                 }
             }
         })
-
     })
 })

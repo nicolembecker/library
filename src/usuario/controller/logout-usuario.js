@@ -1,18 +1,12 @@
 $(document).ready(function() {
 
-    $('.btn-save').click(function(e) {
+    $('.logout').click(function(e) {
         e.preventDefault()
-
-        let dados = $('#form-usuario').serialize()
-
-        dados += `&operacao=${$('.btn-save').attr('data-operation')}`
-
         $.ajax({
             type: 'POST',
             dataType: 'json',
             assync: true,
-            data: dados,
-            url: 'src/usuario/model/save-usuario.php',
+            url: 'src/usuario/model/logout-usuario.php',
             success: function(dados) {
                 Swal.fire({
                     title: 'Library',
@@ -20,8 +14,10 @@ $(document).ready(function() {
                     icon: dados.tipo,
                     confirmButtonText: 'OK'
                 })
-                $('#modal-usuario').modal('hide')
-                $('#table-usuario').DataTable().ajax.reload()
+
+                if (dados.tipo === 'success') {
+                    $(location).attr('href', 'login.html');
+                }
             }
         })
     })

@@ -35,14 +35,11 @@ $(document).ready(function() {
                                         $('#EIXO_IDEIXO').append(`<option value="${dado.IDEIXO}">${dado.NOME}</option>`)
                                     }
                                 }
-
-                                // Criei um laço de repatição para aparecer os demais eixos existentes no banco de dados....
                                 for (const eixoFind of dados) {
                                     if (eixoFind.IDEIXO != eixo) {
                                         $('#EIXO_IDEIXO').append(`<option value="${eixoFind.IDEIXO}">${eixoFind.NOME}</option>`)
                                     }
                                 }
-
                             }
                         })
                     })
@@ -58,6 +55,5 @@ $(document).ready(function() {
                 }
             }
         })
-
     })
 })

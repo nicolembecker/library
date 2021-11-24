@@ -5,35 +5,68 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciamento do sistema de biblioteca</title>
-    <link rel="shortcut icon" href="image/brandColor.png" type="image/x-icon">
+    <title>Gerenciador do Sistema de Biblioteca</title>
+    <link rel="shortcut icon" href="img/livro.png" type="image/x-icon">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="libs/fontAwesome/css/all.css">
     <link rel="stylesheet" href="libs/sweetAlert/dist/sweetalert2.css">
     <link rel="stylesheet" href="libs/DataTables/datatables.css">
+    <link rel="stylesheet" href="css/new.css">
 </head>
 
 <body>
+    <!-- http://pw3library.lovestoblog.com/adm.html -->
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand text-white">Biblioteca</a>
-        <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div id="my-nav" class="collapse navbar-collapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="src/eixo/view/list-eixo.html"><i class="fas fa-caret-square-down"></i> Eixos Tecnológicos</a>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+        <div class="navbar-toggler-right">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse flex-column " id="navbar">
+
+            <ul class="navbar-nav  w-100 justify-content-center px-3">
+                <li class="nav-item active">
+                    <a class="nav-link" href="adm.html"><i class="fas fa-home"></i> Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="src/curso/view/list-curso.html"><i class="fab fa-discourse"></i> Cursos</a>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="src/eixo/view/list-eixo.html"><i class="fas fa-caret-square-right"></i> Eixo Tecnológico</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="src/tipo-usuario/view/list-tipo.html"><i class="fas fa-user-tag"></i> Tipos Usuários</a>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="src/tipo-usuario/view/list-tipo.html"><i class="fas fa-user-circle"></i> Tipos de Usuários</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="src/usuario/view/list-usuario.html"><i class="fas fa-users"></i> Usuários do Sistema</a>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="src/curso/view/list-curso.html"><i class="fas fa-book"></i> Cursos</a>
                 </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="src/usuario/view/list-usuario.html"><i class="fas fa-user"></i> Usuários</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="src/trabalho/view/list-trabalho.html"><i class="fas fa-bookmark"></i> Trabalhos</a>
+                </li>
+
+                <li class="nav-item">
+                    <button class="btn btn-secoundary ml-3 logout">
+                        <i class="fas fa-sign-out-alt"></i> Sair do Sistema
+                    </button>
+                </li>
+
+                <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="ahswdg" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">coisa</a>
+                        <a class="dropdown-item" href="#">ota coisa</a>
+                        <a class="dropdown-item" href="#">ota ota coisa</a>
+                    </div>
+                </li> -->
             </ul>
         </div>
     </nav>
@@ -41,7 +74,7 @@
     <div class="container" id="conteudo">
         <div class="row justify-content-center mt-5">
             <div class="col-12 col-sm-8 col-md-4 mt-5">
-                <img class="img-fluid" src="image/logo.png" alt="Sistema">
+                <img class="img-fluid" src="img/etecd.png" alt="Sistema">
             </div>
         </div>
     </div>
@@ -51,6 +84,8 @@
     <script src="libs/sweetAlert/dist/sweetalert2.js"></script>
     <script src="js/load-link.js"></script>
     <script src="libs/DataTables/datatables.js"></script>
+    <script src="src/usuario/controller/validar-usuario.js"></script>
+    <script src="src/usuario/controller/logout-usuario.js"></script>
 </body>
 
 </html>

@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     $('#table-tipo').on('click', 'button.btn-delete', function(e) {
 
         e.preventDefault()
@@ -11,8 +10,8 @@ $(document).ready(function() {
             text: 'Deseja realmente excluir esse registro?',
             icon: 'question',
             showCancelButton: true,
-            confirmButtonText: 'Sim',
-            cancelButtonText: 'Não'
+            confirmButtonTexto: 'Sim',
+            cancelButtonText: 'Não',
         }).then((result => {
             if (result.value) {
 
@@ -29,12 +28,10 @@ $(document).ready(function() {
                             icon: dados.tipo,
                             confirmButtonText: 'OK'
                         })
-
                         $('#table-tipo').DataTable().ajax.reload()
                     }
                 })
             }
         }))
-
     })
 })

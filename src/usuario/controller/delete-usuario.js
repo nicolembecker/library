@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     $('#table-usuario').on('click', 'button.btn-delete', function(e) {
 
         e.preventDefault()
@@ -11,8 +10,8 @@ $(document).ready(function() {
             text: 'Deseja realmente excluir esse registro?',
             icon: 'question',
             showCancelButton: true,
-            confirmButtonText: 'Sim',
-            cancelButtonText: 'Não'
+            confirmButtonTexto: 'Sim',
+            cancelButtonText: 'Não',
         }).then((result => {
             if (result.value) {
 

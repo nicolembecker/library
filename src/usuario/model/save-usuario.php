@@ -15,20 +15,20 @@
         );
     } else {
         // Caso não exista campo em vazio, vamos gerar a requisição
-        $ID = isset($requestData['IDUSUARIO']) ? $requestData['IDUSUARIO'] : '';
+        $IDUSUARIO = isset($requestData['IDUSUARIO']) ? $requestData['IDUSUARIO'] : '';
         $operacao = isset($requestData['operacao']) ? $requestData['operacao'] : '';
 
         // Verifica se é para cadastra um nvo registro
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
             try{
-                $stmt = $pdo->prepare('INSERT INTO USUARIO (NOME, EMAIL, SENHA, TIPO_USUARIO_IDTIPO_USUARIO, CURSO_IDCURSO) VALUES (:a, :b, :c, :d, :e)');
+                $stmt = $pdo->prepare('INSERT INTO USUARIO (NOME, EMAIL, SENHA, TIPO_USUARIO_IDTIPO_USUARIO, CURSO_IDCURSO) VALUES (:nome, :email, :senha, :tu, :cu)');
                 $stmt->execute(array(
-                    ':a' => utf8_decode($requestData['NOME']),
-                    ':b' => utf8_decode($requestData['EMAIL']),
-                    ':c' => md5($requestData['SENHA']),
-                    ':d' => $requestData['TIPO_USUARIO_IDTIPO_USUARIO'],
-                    ':e' => $requestData['CURSO_IDCURSO']
+                    ':nome' => utf8_decode($requestData['NOME']),
+                    ':email' => utf8_decode($requestData['EMAIL']),
+                    ':senha' => md5($requestData['SENHA']),
+                    ':tu'  => utf8_decode($requestData['TIPO_USUARIO_IDTIPO_USUARIO']),
+                    ':cu'=> utf8_decode($requestData['CURSO_IDCURSO'])
                 ));
                 $dados = array(
                     "tipo" => 'success',
@@ -37,20 +37,20 @@
             } catch(PDOException $e) {
                 $dados = array(
                     "tipo" => 'error',
-                    "mensagem" => 'Não foi possível efetuar o cadastro do curso.'
+                    "mensagem" => 'Não foi possível efetuar o cadastro do usuário.'
                 );
             }
         } else {
             // Se minha variável operação estiver vazia então devo gerar os scripts de update
             try{
-                $stmt = $pdo->prepare('UPDATE USUARIO SET NOME = :a, EMAIL = :b, SENHA = :c, TIPO_USUARIO_IDTIPO_USUARIO = :d, CURSO_IDCURSO = :e WHERE IDUSUARIO = :id');
+                $stmt = $pdo->prepare('UPDATE USUARIO SET NOME = :nome, EMAIL = :email, SENHA = :senha, TIPO_USUARIO_IDTIPO_USUARIO = :tu, CURSO_IDCURSO = :cu WHERE IDUSUARIO = :id');
                 $stmt->execute(array(
-                    ':id' => $ID,
-                    ':a' => utf8_decode($requestData['NOME']),
-                    ':b' => utf8_decode($requestData['EMAIL']),
-                    ':c' => md5($requestData['SENHA']),
-                    ':d' => $requestData['TIPO_USUARIO_IDTIPO_USUARIO'],
-                    ':e' => $requestData['CURSO_IDCURSO']
+                    ':id' => $IDUSUARIO,
+                    ':nome' => utf8_decode($requestData['NOME']),
+                    ':email' => utf8_decode($requestData['EMAIL']),
+                    ':senha' => md5($requestData['SENHA']),
+                    ':tu'  => utf8_decode($requestData['TIPO_USUARIO_IDTIPO_USUARIO']),
+                    ':cu'=> utf8_decode($requestData['CURSO_IDCURSO'])
                 ));
                 $dados = array(
                     "tipo" => 'success',
@@ -59,7 +59,7 @@
             } catch (PDOException $e) {
                 $dados = array(
                     "tipo" => 'error',
-                    "mensagem" => 'Não foi possível efetuar o alteração do curso.'
+                    "mensagem" => 'Não foi possível efetuar o alteração do usuário.'
                 );
             }
         }

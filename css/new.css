@@ -1,5 +1,5 @@
 .bg-custom-1 {
-    background-color: #85144b;
+    background-color: #510899;
 }
 
 .bg-custom-2 {
@@ -7,5 +7,9 @@
 }
 
 .bg-company-red {
-    background-color: darkred !important;
+    background-color: rgb(29, 197, 216) !important;
+}
+
+.bg-cl-io {
+    background-color: #343a40;
 }

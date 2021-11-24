@@ -1,25 +1,22 @@
 $(document).ready(function() {
-    $('#table-curso').on('click', 'button.btn-delete', function(e) {
-
+    $('#table-trabalho').on('click', 'button.btn-delete', function(e) {
         e.preventDefault()
-
-        let IDCURSO = `IDCURSO=${$(this).attr('id')}`
-
+        let IDTRABALHO = `IDTRABALHO=${$(this).attr('id')}`
         Swal.fire({
             title: 'Library',
             text: 'Deseja realmente excluir esse registro?',
             icon: 'question',
             showCancelButton: true,
-            confirmButtonTexto: 'Sim',
-            cancelButtonText: 'Não',
+            confirmButtonText: 'Sim',
+            cancelButtonText: 'Não'
         }).then((result => {
             if (result.value) {
                 $.ajax({
                     type: 'POST',
                     dataType: 'json',
                     assync: true,
-                    data: IDCURSO,
-                    url: 'src/curso/model/delete-curso.php',
+                    data: IDTRABALHO,
+                    url: 'src/trabalho/model/delete-trabalho.php',
                     success: function(dados) {
                         Swal.fire({
                             title: 'Library',
@@ -27,7 +24,7 @@ $(document).ready(function() {
                             icon: dados.tipo,
                             confirmButtonText: 'OK'
                         })
-                        $('#table-curso').DataTable().ajax.reload()
+                        $('#table-trabalho').DataTable().ajax.reload()
                     }
                 })
             }
